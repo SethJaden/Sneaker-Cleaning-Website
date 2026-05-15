@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChacenSneakers</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">CS</div>
+        <div>
+          <h1>ChacenSneakers</h1>
+          <p>Premium Sneaker Cleaning & Custom Design</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="secondary-btn icon-btn" type="button" aria-label="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+        <button id="adminLoginBtn" class="secondary-btn" type="button">Admin Login</button>
+        <button id="logoutBtn" class="danger-btn hidden" type="button">Log out</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero card">
+        <div class="hero-content">
+          <h2>Your Sneakers Deserve a Fresh Start</h2>
+          <p>
+            ChacenSneakers gives your kicks premium cleaning, restoration, and custom design care with
+            a smooth booking experience.
+          </p>
+          <div class="hero-cta">
+            <button id="heroBookNowBtn" class="primary-btn" type="button">Book Appointment</button>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>1,200+</strong><span>Sneakers cleaned</span></div>
+            <div class="stat"><strong>98%</strong><span>Happy clients</span></div>
+            <div class="stat"><strong>24h</strong><span>Fast turnaround</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="shoe-glow"></div>
+          <div class="shoe-card">👟</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Recent Cleaning Transformations</h2>
+        <p>Before-and-after showcases updated by the admin dashboard.</p>
+        <div id="showcaseGrid" class="placeholder-grid"></div>
+      </section>
+
+      <section id="userAuthSection" class="card hidden">
+        <h2>User Sign In</h2>
+        <p>Sign in to book and edit your appointments anytime.</p>
+        <form id="userAuthForm" class="form-grid">
+          <label>
+            Full Name
+            <input id="authName" name="authName" required />
+          </label>
+          <label>
+            Email
+            <input id="authEmail" name="authEmail" type="email" required />
+          </label>
+          <label>
+            Password
+            <input id="authPassword" name="authPassword" type="password" required />
+          </label>
+          <label>
+            Action
+            <select id="authAction" name="authAction">
+              <option value="signin">Sign In</option>
+              <option value="register">Register</option>
+            </select>
+          </label>
+          <button class="primary-btn full-width" type="submit">Continue</button>
+        </form>
+        <p id="authMessage" class="message"></p>
+      </section>
+
+      <section id="customerSection" class="hidden">
+        <div class="card">
+          <h2>Book a Sneaker Cleaning Appointment</h2>
+          <div class="slideshow" aria-label="Sneaker gallery slideshow">
+            <img class="slide active" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80" alt="Clean white and red sneakers" />
+            <img class="slide" src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=1400&q=80" alt="Colorful sneaker collection" />
+            <img class="slide" src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?auto=format&fit=crop&w=1400&q=80" alt="Freshly cleaned classic sneakers" />
+            <img class="slide" src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=1400&q=80" alt="Custom painted sneaker design" />
+            <div class="slide-dots" id="slideDots"></div>
+          </div>
+          <form id="bookingForm" class="form-grid">
+            <label>
+              Full Name
+              <input id="customerName" name="customerName" required />
+            </label>
+            <label>
+              Email
+              <input id="customerEmail" name="customerEmail" type="email" required readonly />
+            </label>
+            <label>
+              Phone Number
+              <input id="customerPhone" name="customerPhone" required />
+            </label>
+            <label>
+              Appointment Date
+              <input id="appointmentDate" name="appointmentDate" type="date" required />
+            </label>
+            <label>
+              Appointment Time
+              <input id="appointmentTime" name="appointmentTime" type="time" required />
+            </label>
+            <label>
+              Sneaker Type / Brand
+              <input id="sneakerType" name="sneakerType" required />
+            </label>
+            <label>
+              Cleaning Package
+              <select id="cleaningPackage" name="cleaningPackage" required>
+                <option value="Basic Clean">Basic Clean</option>
+                <option value="Deep Clean">Deep Clean</option>
+                <option value="Restoration">Restoration</option>
+              </select>
+            </label>
+            <label class="full-width">
+              Design Request (optional)
+              <textarea
+                id="designDetails"
+                name="designDetails"
+                rows="4"
+                placeholder="Describe your custom sneaker design ideas..."
+              ></textarea>
+            </label>
+            <label class="full-width">
+              Upload Design Reference (optional)
+              <input id="designImage" name="designImage" type="file" accept="image/*" />
+            </label>
+            <button class="primary-btn full-width" type="submit">Submit Appointment</button>
+          </form>
+          <p id="formMessage" class="message"></p>
+        </div>
+
+        <div class="card">
+          <h2>Track Your Appointments</h2>
+          <p>Your appointments are filtered by your email.</p>
+          <div id="customerAppointments" class="list"></div>
+        </div>
+      </section>
+
+      <section id="adminSection" class="hidden">
+        <div class="card">
+          <h2>Business Analytics</h2>
+          <p>Live performance snapshot based on your current data.</p>
+          <div id="analyticsGrid" class="analytics-grid"></div>
+        </div>
+
+        <div class="card">
+          <h2>Registered Users</h2>
+          <p>All customers who signed up on ChacenSneakers.</p>
+          <div id="adminUsersList" class="list"></div>
+        </div>
+
+        <div class="card">
+          <h2>Appointment Tracking</h2>
+          <p>View and manage all sneaker cleaning bookings.</p>
+          <div class="legend">
+            <span class="chip pending">Pending</span>
+            <span class="chip confirmed">Confirmed</span>
+            <span class="chip in-progress">In Progress</span>
+            <span class="chip completed">Completed</span>
+          </div>
+          <div id="adminAppointments" class="list"></div>
+        </div>
+
+        <div class="card">
+          <h2>Homepage Transformation Showcase</h2>
+          <p>Upload before and after photos to display on the home screen. Current slot images are shown below.</p>
+          <div id="adminShowcaseCurrent" class="placeholder-grid"></div>
+          <form id="showcaseForm" class="form-grid">
+            <label>
+              Slot
+              <select id="showcaseSlot" name="showcaseSlot">
+                <option value="0">Showcase 1</option>
+                <option value="1">Showcase 2</option>
+                <option value="2">Showcase 3</option>
+              </select>
+            </label>
+            <label>
+              Sneaker Title
+              <input id="showcaseTitle" name="showcaseTitle" required />
+            </label>
+            <label class="full-width">
+              Before Image
+              <input id="showcaseBeforeImage" name="showcaseBeforeImage" type="file" accept="image/*" />
+            </label>
+            <label class="full-width">
+              After Image
+              <input id="showcaseAfterImage" name="showcaseAfterImage" type="file" accept="image/*" />
+            </label>
+            <button class="secondary-btn full-width" type="submit">Save Showcase Slot</button>
+          </form>
+          <p id="showcaseMessage" class="message"></p>
+        </div>
+      </section>
+    </main>
+
+    <div id="successToast" class="success-toast hidden" role="status" aria-live="polite">
+      <div id="toastIcon" class="success-check">✓</div>
+      <p id="toastText">Appointment booked successfully!</p>
+    </div>
+
+    <template id="appointmentTemplate">
+      <article class="appointment-item">
+        <div class="appointment-head">
+          <h3></h3>
+          <span class="status-badge"></span>
+        </div>
+        <p class="meta"></p>
+        <p class="details"></p>
+        <p class="design"></p>
+        <div class="image-wrap"></div>
+        <div class="admin-controls hidden">
+          <label>
+            Update Status
+            <select class="status-select">
+              <option value="Pending">Pending</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </label>
+        </div>
+        <div class="user-controls hidden">
+          <button class="secondary-btn edit-btn" type="button">Edit Appointment</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
