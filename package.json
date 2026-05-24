@@ -1,0 +1,10 @@
+{
+  "name": "chacensneakers",
+  "version": "1.0.0",
+  "description": "ChacenSneakers - Premium Sneaker Cleaning & Custom Design",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'No build step needed for static site'"
+  }
+}
