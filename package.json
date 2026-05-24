@@ -4,6 +4,7 @@
   "description": "ChacenSneakers - Premium Sneaker Cleaning & Custom Design",
   "private": true,
   "scripts": {
+    "dev": "npx serve . -l 3000",
     "start": "npx serve .",
     "build": "echo 'No build step needed for static site'"
   }
